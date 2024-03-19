@@ -11,7 +11,6 @@ html {
 /* global */
 :root {
   --gap30: 30px;
-  --white: #fff;
   --grey: #545050;
 }
 
@@ -32,7 +31,7 @@ html {
   inline-size: 1200px;
   block-size: 100%;
   margin: auto;
-  color: var(--white);
+  color: #fff;
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   background-color: #1b1919;
@@ -42,14 +41,15 @@ html {
   padding: 0;
   padding-block-start: 5px;
   padding-block-end: 5px;
-  border: 1px solid var(--white);
+  border: 1px solid currentColor;
   cursor: pointer;
+  font-family: inherit;
   font-size: inherit;
   font-weight: 700;
   line-height: 1.2;
   text-align: center;
   background-color: transparent;
-  color: var(--white)
+  color: currentColor;
 }
 
 h1,
@@ -106,7 +106,7 @@ a {
   line-height: 0.94;
   text-align: left;
   text-transform: uppercase;
-  color: var(--white);
+  color: currentColor;
 } 
 
 .content__accent {
@@ -160,7 +160,7 @@ a {
 .content__card-link {
   display: block;
   margin: 2px;
-  color: var(--white);
+  color: currentColor;
 }
 
 .content__card-link_current {
@@ -170,7 +170,7 @@ a {
 .content__video-card-description-container {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 4px;
 }
 
 .content__video-card-title {
@@ -192,7 +192,7 @@ a {
   max-width: 200px;
   font-size: 18px;
   font-weight: 400;
-  line-height: 0.9;
+  line-height: 1;
 }
 
 /* form elements */
@@ -220,7 +220,7 @@ a {
   font-size: 18px;
   font-weight: 400;
   line-height: 1.2;
-  color: var(--white);
+  color: currentColor;
 }
 
 .search-form__textfield {
@@ -232,18 +232,14 @@ a {
   padding-block-start: 1.5px;
   padding-block-end: 3.5px;
   border: none;
-  border-top: 1px solid var(--white);
-  border-bottom: 1px solid var(--white);
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
   background-color: transparent;
+  font-family: inherit;
   font-size: 18px;
   font-weight: 400;
   line-height: 1.2;
-  color: var(--white);
-}
-
-.search-form__textfield::placeholder {
-  letter-spacing: -0.6px; 
-  /* если не добавить letter-spacing, "например" не влезает в инпут */
+  color: currentColor;
 }
 
 .search-form__submit-button {
@@ -262,7 +258,7 @@ a {
   align-items: center;
   width: 19px;
   height: 19px;
-  border: 1px solid var(--white);
+  border: 1px solid currentColor;
   margin-inline-end: 5px;
   vertical-align: middle;
 }
@@ -272,7 +268,7 @@ a {
   display: none;
   width: 15px;
   height: 15px;
-  background-color: var(--white);
+  background-color: currentColor;
 }
 
 .search-form__checkbox:checked + .search-form__pseudo-checkbox::before {
@@ -286,12 +282,12 @@ a {
 }
 
 .search-form__label:has(.search-form__textfield:focus-visible) {
-  outline: 1px solid var(--white);
+  outline: 1px solid currentColor;
   outline-offset: 2px;
 }
 
 .search-form__textfield:active {
-  outline: 1px solid var(--white);
+  outline: 1px solid currentColor;
 }
 
 .button:focus {
@@ -299,7 +295,7 @@ a {
 }
 
 .button:focus-visible {
-  outline: 1px solid var(--white);
+  outline: 1px solid currentColor;
   outline-offset: 2px;
 }
 
@@ -316,7 +312,7 @@ a {
 }
 
 .content__card-link:focus-visible {
-  outline: 1px solid var(--white);
+  outline: 1px solid currentColor;
 }
 
 .content__card-link:hover .content__video-card-title, 
@@ -333,7 +329,7 @@ a {
 }
 
 .search-form__label:has(.search-form__checkbox:focus-visible) {
-  outline: 1px solid var(--white);
+  outline: 1px solid currentColor;
   outline-offset: 2px;
 }
 
