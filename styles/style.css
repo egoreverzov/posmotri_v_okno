@@ -47,7 +47,6 @@ html {
   font-size: inherit;
   font-weight: 700;
   line-height: 1.2;
-  letter-spacing: -1.5px;
   text-align: center;
   background-color: transparent;
   color: var(--white)
@@ -81,8 +80,6 @@ a {
   align-items: flex-end;
   gap: var(--gap30);
   inline-size: 1140px;
-  margin-block-start: -25px;
-  /* отрицателный margin добавил, чтобы совпадало с макетом(pixel perfect(PP)), при выравнивании этого блока по центру(без margin) есть расхождения с PP */
 }
 
 .search-form {
@@ -103,7 +100,7 @@ a {
 
 .title {
   margin-block-end: 25px;
-  font-family: Oswald;
+  font-family: Oswald, sans-serif;
   font-size: 75px;
   font-weight: 700;
   line-height: 0.94;
@@ -114,13 +111,17 @@ a {
 
 .content__accent {
   color: #545050;
-  ;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .result__video-container {
   inline-size: 711px;
   block-size: 384px;
-  margin-block-end: 15px;
 }
 
 .result__video-container,
@@ -136,7 +137,7 @@ a {
 }
 
 .content__list-item:not(:last-child) {
-  margin-block-end: 38px;
+  margin-block-end: var(--gap30);
 }
 
 .content__video-card {
@@ -146,7 +147,7 @@ a {
 }
 
 .content__video-card-thumbnail {
-  block-size: 100px;
+  block-size: 107px;
   inline-size: 194px;
   object-fit: cover;
   object-position: center;
@@ -173,7 +174,11 @@ a {
 }
 
 .content__video-card-title {
-  font-family: Oswald;
+  text-overflow: ellipsis; 
+  white-space: nowrap; 
+  overflow: hidden;
+  max-width: 200px;
+  font-family: Oswald, sans-serif;
   font-size: 30px;
   font-weight: 700;
   line-height: 1;
@@ -181,6 +186,10 @@ a {
 }
 
 .content__video-card-description {
+  text-overflow: ellipsis; 
+  white-space: nowrap; 
+  overflow: hidden;
+  max-width: 200px;
   font-size: 18px;
   font-weight: 400;
   line-height: 0.9;
@@ -218,7 +227,7 @@ a {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  min-width: 225px;
+  width: 225px;
   padding: 0;
   padding-block-start: 1.5px;
   padding-block-end: 3.5px;
@@ -229,8 +238,12 @@ a {
   font-size: 18px;
   font-weight: 400;
   line-height: 1.2;
-  letter-spacing: -0.8px;
   color: var(--white);
+}
+
+.search-form__textfield::placeholder {
+  letter-spacing: -0.6px; 
+  /* если не добавить letter-spacing, "например" не влезает в инпут */
 }
 
 .search-form__submit-button {
@@ -244,24 +257,21 @@ a {
 }
 
 .search-form__pseudo-checkbox {
-  display: inline-block;
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 19px;
   height: 19px;
   border: 1px solid var(--white);
-  margin-right: 5px;
+  margin-inline-end: 5px;
   vertical-align: middle;
 }
 
 .search-form__pseudo-checkbox::before {
   content: '';
   display: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
   width: 15px;
   height: 15px;
-  transform: translate(-50%, -50%);
   background-color: var(--white);
 }
 
@@ -271,8 +281,7 @@ a {
 
 /* states */
 
-.search-form__textfield:focus,
-.search-form__textfield:focus-visible {
+.search-form__textfield:focus {
   outline: none;
 }
 
